@@ -1,6 +1,11 @@
 import { Button } from "@/components/ui/button";
+import { sanityFetch } from "@/sanity/lib/live";
 
-export default function Home() {
+export default async function Home() {
+  const categories = await sanityFetch({
+    query: '*'
+  })
+  console.log(categories)
   return (
     <div className="">
       {/* Feature products carousel */}
